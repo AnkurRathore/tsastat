@@ -6,14 +6,10 @@ description = "Thread State Analysis tool using Linux Netlink taskstats"
 authors = ["Ankur Rathore <rathore.ankur@gmail.com>"]
 
 [dependencies]
-# Netlink communication
-neli = "0.6"
+netlink-sys = "0.8" 
+byteorder = "1.5" 
 libc = "0.2"
-
-# UI and CLI
+anyhow = "1.0"
 ratatui = "0.26"
 crossterm = "0.27"
 clap = { version = "4.4", features = ["derive"] }
-
-# Error handling
-anyhow = "1.0"
