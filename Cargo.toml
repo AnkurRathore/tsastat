@@ -6,7 +6,8 @@ description = "Thread State Analysis tool using Linux Netlink taskstats"
 authors = ["Ankur Rathore <rathore.ankur@gmail.com>"]
 
 [dependencies]
-netlink-sys = "0.8" 
+netlink-sys = "0.8"
+neli = "0.6.4"
 byteorder = "1.5" 
 libc = "0.2"
 anyhow = "1.0"
