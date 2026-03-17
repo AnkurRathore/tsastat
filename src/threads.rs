@@ -6,12 +6,12 @@ use std::fs;
 // /proc/1234/task/1111/
 // /proc/1234/task/2222/
 // /proc/1234/task/3333/
-pub fn get_tids(pid: u32) -> Vec<u32>{
+pub fn get_tids(pid: u32) -> Vec<u32> {
     let mut tids = Vec::new();
     let path = format!("/proc/{}/task/", pid);
     // Read the directory entries
     if let Ok(entries) = fs::read_dir(path) {
-        for entry in entries.flatten(){
+        for entry in entries.flatten() {
             if let Ok(file_name) = entry.file_name().into_string() {
                 if let Ok(tid) = file_name.parse::<u32>() {
                     tids.push(tid);

@@ -58,10 +58,9 @@ impl TaskstatsClient {
 
             if let NlPayload::Payload(genl_msg) = msg.nl_payload {
                 let handle = genl_msg.get_attr_handle();
-                
+
                 for attr in handle.get_attrs() {
                     if u16::from(attr.nla_type.nla_type) == TASKSTATS_TYPE_AGGR_PID {
-                        
                         // 5. MANUAL PARSING: parse the raw bytes.
                         let nested_payload = attr.nla_payload.as_ref();
                         // Read head starts reading from the start of the payload
