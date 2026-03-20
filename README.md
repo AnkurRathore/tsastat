@@ -6,7 +6,7 @@
 ![Rust](https://img.shields.io/badge/rust-2021-red)
 ![Status](https://img.shields.io/badge/status-complete-green)
 
-## ⚡ The Problem: The "100% CPU" Lie
+## The Problem: The "100% CPU" Lie
 Standard tools like `top` or `/proc/[pid]/stat` tell you if a process is using the CPU, but they are terrible at telling you *why* a process is slow when it isn't. 
 
 If a database query takes 5 seconds, was the thread actually executing? Was it waiting in the run-queue because the CPU was saturated? Was it stalled on a page fault? Standard tools lack the granularity to answer these questions without expensive `strace` or `perf` overhead.
