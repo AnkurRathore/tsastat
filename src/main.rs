@@ -1,19 +1,30 @@
+mod app;
 mod netlink;
 mod protocol;
 mod stats;
 mod threads;
-mod app;
 mod ui;
 
-use anyhow::Result;
-use crossterm::{event::{self, Event, KeyCode}, execute, terminal::*};
-use ratatui::prelude::*;
-use std::{env, io, collections::HashMap, time::{Duration, Instant}};
 use crate::app::{App, ThreadEntry};
+use anyhow::Result;
+use crossterm::{
+    event::{self, Event, KeyCode},
+    execute,
+    terminal::*,
+};
+use ratatui::prelude::*;
+use std::{
+    collections::HashMap,
+    env, io,
+    time::{Duration, Instant},
+};
 
 fn main() -> Result<()> {
     let args: Vec<String> = env::args().collect();
-    let target_pid: u32 = args.get(1).and_then(|s| s.parse().ok()).expect("PID required");
+    let target_pid: u32 = args
+        .get(1)
+        .and_then(|s| s.parse().ok())
+        .expect("PID required");
 
     enable_raw_mode()?;
     let mut stdout = io::stdout();
@@ -36,7 +47,11 @@ fn main() -> Result<()> {
             if let Ok(stats) = client.get_stats(tid) {
                 if let Some(prev) = prev_stats.get(&tid) {
                     let metrics = stats::calculate_deltas(prev, &stats, elapsed);
-                    entries.push(ThreadEntry { tid, metrics, raw: stats });
+                    entries.push(ThreadEntry {
+                        tid,
+                        metrics,
+                        raw: stats,
+                    });
                 }
                 current_stats.insert(tid, stats);
             }

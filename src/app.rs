@@ -30,13 +30,15 @@ impl App {
         }
         let i = match self.table_state.selected() {
             Some(i) => {
-                if i >= self.items.len() -1 {0} else {i +1}
+                if i >= self.items.len() - 1 {
+                    0
+                } else {
+                    i + 1
+                }
             }
             None => 0,
         };
         self.table_state.select(Some(i));
-
-
     }
     pub fn previous(&mut self) {
         if self.items.is_empty() {
@@ -44,7 +46,11 @@ impl App {
         }
         let i = match self.table_state.selected() {
             Some(i) => {
-                if i == 0 {self.items.len() -1} else {i -1}
+                if i == 0 {
+                    self.items.len() - 1
+                } else {
+                    i - 1
+                }
             }
             None => 0,
         };
