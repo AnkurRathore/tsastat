@@ -31,9 +31,9 @@ Discussing the lack of Thread State Analysis (TSA) tools for Linux, Gregg wrote:
 
 ## Demo
 
-![tsastat demo](docs/demo.png)
+![tsastat demo](docs/demo.gif)
 
-*In this example, the targeted thread is suffering from massive CPU saturation. It spends ~78% of its time just waiting in the run-queue to be scheduled, highlighting a severe "noisy neighbor" or under-provisioning issue.*
+*Interactive Drill-down: Users can navigate the thread list in real-time. Selecting a thread populates the Inspector Pane with raw Kernel Taskstats, exposing the underlying nanosecond counters and ABI metadata.*
 
 ## Under the Hood (Architecture & Kernel Quirks)
 
