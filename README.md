@@ -1,5 +1,5 @@
 # tsastat (Thread State Analysis)
-
+**🏆 Selected as [Crate of the Week](https://this-week-in-rust.org/blog/2026/04/01/this-week-in-rust-645/) in This Week in Rust #645!**
 **A high-resolution Linux thread profiling TUI built in Rust, powered by Kernel Delay Accounting (Taskstats) and raw Netlink sockets.**
 
 ![Platform](https://img.shields.io/badge/platform-linux-lightgrey)
